@@ -38,6 +38,7 @@ namespace WindowsFormsChatFormServer
 
         private void Form1_Load(object sender, EventArgs e)
         {
+            Control.CheckForIllegalCrossThreadCalls = false;
             this.StartClientForm();
         }
 
@@ -86,7 +87,9 @@ namespace WindowsFormsChatFormServer
                 clientEndPoint = connSocket.RemoteEndPoint as IPEndPoint;
                 clientAddress = clientEndPoint.Address;
                 clientPort = clientEndPoint.Port.ToString();
-                ShowMsg("*********************\nClient Connected: " + "\n*********************");
+                ShowMsg("*********************" 
+                    + "Client Connected: " + clientAddress.ToString() 
+                    + clientPort + "*********************");
             }
         }
 

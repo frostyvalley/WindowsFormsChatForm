@@ -15,8 +15,8 @@ namespace WindowsFormsChatFormClient
     {
         private Socket clientSocket = null;
         private string serverIP = "127.0.0.1";
-        private string port = "8080";
-        private IPAddress address = null;
+        private string serverPort = "8080";
+        private IPAddress serverAddress = null;
         private IPEndPoint endPoint = null;
 
         public Form1()
@@ -33,8 +33,8 @@ namespace WindowsFormsChatFormClient
         private void Connect()
         {
             clientSocket = new Socket(AddressFamily.InterNetwork, SocketType.Stream, ProtocolType.Tcp);
-            address = IPAddress.Parse(serverIP);
-            endPoint = new IPEndPoint(address, int.Parse(port));
+            serverAddress = IPAddress.Parse(serverIP);
+            endPoint = new IPEndPoint(serverAddress, int.Parse(serverPort));
 
             
         }
